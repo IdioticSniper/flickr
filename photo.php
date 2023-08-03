@@ -127,7 +127,7 @@ if ($add_view) {
 	<table style="margin-top:0px;">
 		<tr>
 			<td id="Hint">
-				<p style="margin-top: 20px;">This photo has been viewed <b><?php echo $view_count; ?></b> times  as of <?php echo $Now->format('F') . " " . $Now->format('d'); ?>!</p>
+				<p style="margin-top: 20px;">This photo has been viewed <b><?php echo $view_count; ?></b> times as of <?php echo $Now->format('F') . " " . $Now->format('d'); ?>!</p>
 				<img src="/images/spaceball.gif" alt="spacer image" width="180" height="1" style="border: none;">
 			</td>
 			<td valign="top" width="450"> 
@@ -138,7 +138,7 @@ if ($add_view) {
 						<td>Choose a screen name...</td>
 						</tr>
 						<tr>
-							<td class=\"Or\">(Already a member? <a href=\"/login.php\" title=\"Log in to Flickr\">Log in</a>.)</td>
+							<td class=\"Or\">(Already a member? <a href=\"/login.php\" title=\"Log in to Flickr\">Log in</a>!)</td>
 							<td align=\"center\"><input name=\"username\" type=\"text\" size=\"20\">&nbsp;<a href=\"/register.php\"><input type=\"image\" src=\"/images/button_go_up_small.gif\" style=\"border:none;\" alt=\"Get your screen name!\" align=\"absmiddle\"></a></td>
 						</tr>
 				</table>";
