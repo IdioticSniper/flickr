@@ -25,7 +25,7 @@ if(isset($_GET["approve"])) {
 	$stmt->bindParam(':t0', $_GET["approve"]);
 	$stmt->execute();
 	foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $testimonial);
-	if($_SESSION["id"] == $testimonial->sent_to || $testimonial->sent_by) {
+	if($_SESSION["id"] == $testimonial->sent_to) {
 		$stmt = $conn->prepare("UPDATE testimonials set approved=1 WHERE id=:t0");
 		$stmt->bindParam(':t0', $_GET["approve"]);
 		$stmt->execute();
@@ -120,8 +120,7 @@ if(isset($_GET["approve"])) {
 						</td>
 					</tr></table>
 					";
-					}
-					if($testimonial->approved == 1) {
+					} else if($testimonial->approved == 1) {
 						echo "<table><h4>Approved</h4></table>";
 						$stmt = $conn->prepare("SELECT * from testimonials WHERE sent_by=:t0 AND approved=1");
 						$stmt->bindParam(":t0", $_SESSION["id"]);
