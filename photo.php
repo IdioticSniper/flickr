@@ -132,7 +132,7 @@ if ($add_view) {
 										<p style="width: 450px;"><?php echo nl2br(htmlspecialchars($photo->description)); ?></p>
 										<?php if(isset($photo->camera)) {
 											if($photo->camera !== "Unavailable") {
-											echo "<p style=\"font-style: italic; color: #666; width: 450px;\">Taken with a <a href=\"photo_exif.php?id=" . $_GET["id"] . "\" style=\"color: #4B8FE3;\">" . $photo->camera . "</a>.</p>";
+											echo "<p style=\"font-style: italic; color: #666; width: 450px;\">Taken with a <a href=\"photo_exif.php?id=" . $_GET["id"] . "\" style=\"color: #4B8FE3;\">" . htmlspecialchars($photo->camera) . "</a>.</p>";
 											}
 										}
 										?>
