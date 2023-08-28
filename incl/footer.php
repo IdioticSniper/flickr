@@ -9,6 +9,8 @@
 		| 
 		Brought to you by <a href="#">IdioticSniper</a>
 		|
+		<a href="https://discord.gg/5WNm72MRj8">Discord</a>
+		|
 	</p>
 </div>
 

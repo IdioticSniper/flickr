@@ -37,7 +37,7 @@ if(isset($_POST["Submit"])) {
 		$stmt->bindParam(':email', $email);
 		$stmt->execute();
 		// You may now login
-		$_SESSION["id"] = getNextID("SELECT * FROM users ORDER BY id DESC", "id");
+		$_SESSION["id"] = getNextID("SELECT * FROM users", "id");
 		$_SESSION["id"] = $_SESSION["id"] - 1;
 		$_SESSION["email"] = $email;
 		$_SESSION["screen_name"] = $username;
