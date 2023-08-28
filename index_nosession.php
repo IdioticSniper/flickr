@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-	<title>Welcome to Flickr - Photo Sharing</title>
+	<title>Welcome to <?php echo $website["instance_name"]; ?> - Photo Sharing</title>
 	<link href="/css/home.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -10,7 +10,7 @@
  <table width="760" border="0" cellspacing="0" cellpadding="0">
   <tr> 
    <td colspan="3"><img src="images/home_1.jpg" width="589" height="80"></td>
-   <td><img src="images/home_logo.gif" width="171" height="80"></td>
+   <td><img src="<?php echo $website["instance_logo"]; ?>" width="171" height="80"></td>
   </tr>
   <tr> 
    <td><img src="images/home_2.jpg" width="132" height="200"></td>
@@ -25,12 +25,12 @@
    <td class="SignUp" align="center"><strong>Start sharing your stories</strong><br />
 	<a href="/register.php"><img src="images/button_sign_up_up.gif" style="border: none;"></a><br />...and open a free account.</td>
 		
-   <td class="LogIn">Already a Flickr member?<br>
+   <td class="LogIn">Already a <?php echo $website["instance_name"]; ?> member?<br>
 	 <a href="login.php">Log in here</a>.
 	</td>
 	</tr>
  </table>
- <p class="TellIt"><strong>Flickr is a revolution in photo storage, sharing and organization</strong>, making photo 
+ <p class="TellIt"><strong><?php echo $website["instance_name"]; ?> is a revolution in photo storage, sharing and organization</strong>, making photo 
 management an easy, natural and collaborative process. Get comments, notes, and tags 
 on your photos, post to any blog, share and chat live and more!</p>
 
@@ -60,7 +60,7 @@ on your photos, post to any blog, share and chat live and more!</p>
 <div class="rbbot"><div></div></div>
 </div>
 
-<p class="Ludicorp">Brought to you by IdioticSniper</p>
+<p class="Ludicorp">Brought to you by <?php echo $website["instance_name"]; ?></p>
 </div>
 
 </body>

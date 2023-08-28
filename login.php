@@ -7,8 +7,8 @@ if(isset($_SESSION["email"])) {
 }
 
 if(isset($_POST["Submit"])) {
-	if(empty($_POST["email"])) { die("you did not input an email"); }
-	if(empty($_POST["password"])) { die("you did not input a password"); }
+	if(empty($_POST["email"])) { error("You did not enter an e-mail."); }
+	if(empty($_POST["password"])) { error("No password was entered."); }
 	
 	$email = $_POST["email"];
 	
@@ -37,7 +37,7 @@ if(isset($_POST["Submit"])) {
 		
 		if($password_ok) {
 			if($isBanned == 1) {
-				die("This account has been suspended.");
+				error("This account has been suspended.");
 			}
 			$_SESSION["id"] = $id;
 			$_SESSION["email"] = $email;
@@ -50,7 +50,7 @@ if(isset($_POST["Submit"])) {
 			$stmt->execute();
 			header("Location: /");
 		} else {
-			die("wrong password");
+			error("Username or password is incorrect.");
 		}
 	} else {
 		die("user does not exist");

@@ -1,3 +1,7 @@
 RewriteEngine on
-
 ErrorDocument 404 /404.php
+
+<FilesMatch "\.gne$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
