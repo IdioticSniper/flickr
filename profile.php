@@ -88,7 +88,7 @@ $Now = new DateTime($user->last_login);
 					echo "<p id=\"Testi\">
 					<a href=\"profile.php?id=". $testimonial->sent_by . "\"><img src=\"" . $tst_user->display_picture . "\" alt=\"view profile\" width=\"48\" height=\"48\" border=\"0\" class=\"BuddyIconTestimonial\"></a>
 					<strong><a href=\"profile.php?id=". $testimonial->sent_by . "\">" . $tst_user->screen_name . "</a> says:</strong><br>
-					\"" . htmlspecialchars(nl2br($testimonial->text)) . "\"<br clear=\"all\">
+					\"" . nl2br(htmlspecialchars($testimonial->text)) . "\"<br clear=\"all\">
 				</p>";
 				}
 			} else if(!($_SESSION["id"] == $_GET["id"])) {
