@@ -56,7 +56,7 @@ function imgProcess($img, $width, $height, $fn) {
 		$gdimage_t_w = $width;
 	}
 	$gdimage_t = imagescale($gdimage_t, $gdimage_t_w, $gdimage_t_h);
-	$gdimage_t = imgLetterbox($gdimage_t, false, $width, $height);
+	// $gdimage_t = imgLetterbox($gdimage_t, false, $width, $height);
 	imagejpeg($gdimage_t, $fn);
 }
 
