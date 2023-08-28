@@ -144,8 +144,4 @@ function ordinal($number) {
         return $number. $ends[$number % 10];
 }
 
-function error($msg) {
-	// Thanks Flickr
-	echo "<p class="Problem">".$msg."</p>";
-}
 ?>

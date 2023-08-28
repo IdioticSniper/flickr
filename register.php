@@ -1,16 +1,16 @@
 <?php 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/incl/header.php"); 
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
+if(isset($_POST["Submit"])) {
 	$email = $_POST["reg_email"];
 	$username = preg_replace("/<[^>]*>/", "", $_POST["username"]);
 	$username = str_replace(['"',"'"], "", $username);
 	$password = $_POST["password"];
 	// now, check the length.
-	if(strlen($email) > 60) {$error = true;}
-	if(strlen($username) > 20) { $error = true;}
-	if(strlen($password) > 43) { $error = true;}
-	if(strlen($username) < 2) { $error = true; }
+	if(strlen($email) > 60) { die(); }
+	if(strlen($username) > 20) { die(); }
+	if(strlen($password) > 20) { die(); }
+	if(strlen($username) < 3) { die(); }
 	// ----------------------
 	if(empty($email)) { die(header("Location: /register.php?err=2")); }
 	if(empty($password)) { die(header("Location: /register.php?err=2")); }
@@ -19,7 +19,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 	$password = "BCrypt".$password;
 	// ----------------------
 	// And now, the actual signup
-  $result = $conn->query("SELECT email FROM users WHERE email = '$username'");
+	
+	$result = $conn->query("SELECT email FROM users WHERE email = '$username'");
 	if($result->rowCount() == 0) {
 		$login_ok = true;
 	} else die();
@@ -68,10 +69,7 @@ function set_username(username){
 			</td>
 			<td id="GoodStuff">
 
-				<?php if(strlen($email) > 60) { error("The email was too long!");
-	if(strlen($username) > 20) { error("Your screenname is way too long.");}
-	if(strlen($password) > 43) { error("Keep it easy with that password, will 'ya?");}
-	if(strlen($username) < 2) { error("Your screenname is way too short.");} ?>
+
 				<form action="register.php" method="post">
 				<table>
 					<tr>
