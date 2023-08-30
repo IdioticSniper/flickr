@@ -20,7 +20,7 @@ if($website["maintenance"] == true) {
 	<title><?php echo $title; ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="/css/flickr.css?version=1.195" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+	<link rel="shortcut icon" type="image/ico" href="<?php echo $website["favicon"]; ?>" />
 </head>
 <body onload="if (self.location.href != top.location.href) top.location.href = self.location.href;">
 <script language="JavaScript" type="text/javascript" src="/javascript/tooltips.js?version=1.2"></script>

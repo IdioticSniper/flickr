@@ -6,8 +6,10 @@ $database = array();
 $website["sha1_salt"]	  = "thegmaniswatching"; // For legacy purposes
 $website["instance_name"] = "Snippr";
 $website["instance_logo"] = "/images/snippr_logo_beta.png";
+$website["favicon"]		  = "/favicon.ico";
 
 if(isset($_COOKIE["alt_branding"])) {
+	$website["favicon"]		  = "/snippr.ico";
 	$website["instance_name"] = "Flickr";
 	$website["instance_logo"] = "/images/flickr_logo_beta.gif";
 }
