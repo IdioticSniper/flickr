@@ -36,9 +36,14 @@ if(isset($_POST["Submit"])) {
 		$stmt->bindParam(':password', $password);
 		$stmt->bindParam(':email', $email);
 		$stmt->execute();
+		
+		$stmt = $conn->prepare("SELECT * FROM users ORDER by id DESC LIMIT 1");
+		$stmt->execute();
+		foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $user);
+		$uid = $user->id;
+		
 		// You may now login
-		$_SESSION["id"] = getNextID("SELECT * FROM users", "id");
-		$_SESSION["id"] = $_SESSION["id"] - 1;
+		$_SESSION["id"] = $uid;
 		$_SESSION["email"] = $email;
 		$_SESSION["screen_name"] = $username;
 		header("Location: /login.php");
