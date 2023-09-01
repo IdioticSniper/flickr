@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2023 at 11:12 AM
+-- Generation Time: Sep 01, 2023 at 07:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -48,6 +48,7 @@ CREATE TABLE `photos` (
   `camera` varchar(400) DEFAULT NULL,
   `uploaded_by` int(11) NOT NULL,
   `uploaded_on` timestamp NOT NULL DEFAULT current_timestamp(),
+  `posted_to` int(11) DEFAULT NULL,
   `tags` varchar(400) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -84,6 +85,7 @@ CREATE TABLE `testimonials` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `isAdmin` int(11) NOT NULL DEFAULT 0,
   `isBanned` int(11) NOT NULL DEFAULT 0,
   `screen_name` text NOT NULL,
   `display_picture` text NOT NULL DEFAULT '/images/buddyicon.jpg',
