@@ -35,7 +35,11 @@ function EditDesc(){
 </script>
 
 	<h1><?php echo $sn_display; ?> gallery.</h1>
-	
+	<?php if($user->isBanned == 1) {
+			echo "<p class=\"Problem\" style=\"margin-top: 30px; margin-left: 60px;\">This person is no longer active on " . $website["instance_name"] . "</p>";
+			die(require_once($_SERVER["DOCUMENT_ROOT"] . "/incl/footer.php"));
+	}
+	?>
 	<table>
 		<tr>
 			<td id="Hint">
