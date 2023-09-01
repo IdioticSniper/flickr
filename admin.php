@@ -26,7 +26,7 @@ if(isset($_POST["term"])) {
 	$stmt->execute();
 	foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $user);
 	
-	if($user->isAdmin == 1) { die("User is already banned"); }
+	if($user->isAdmin == 1) { die("User is an admin"); }
 	if($user->isBanned == 1) { die("User is already banned"); }
 	
 	$stmt = $conn->prepare("UPDATE users SET `isBanned`=1 WHERE `id`=:t0");
@@ -37,6 +37,10 @@ if(isset($_POST["term"])) {
 	$stmt->bindParam(':t0', $_POST["term_id"]);
 	$stmt->execute();
 	
+	$stmt = $conn->prepare("DELETE FROM testimonials WHERE sent_by=:t0");
+	$stmt->bindParam(':t0', $photo->id);
+	$stmt->execute();
+
 	$stmt = $conn->prepare("SELECT * FROM photos WHERE `uploaded_by`=:t0");
 	$stmt->bindParam(':t0', $_POST["term_id"]);
 	$stmt->execute();
