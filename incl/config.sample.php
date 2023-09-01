@@ -14,7 +14,7 @@ if(isset($_COOKIE["alt_branding"])) {
 	$website["instance_logo"] = "/images/flickr_logo_beta.gif";
 }
 
-$website["allowed_filetypes"] = array("png", "jpg", "bmp", "tga");
+$website["allowed_filetypes"] = array("png", "jpg", "jpeg", "bmp", "tga");
 $website["maintenance"] = false;
 // --------------------------------------------------------
 $database["ip_addr"]	= "127.0.0.1";
