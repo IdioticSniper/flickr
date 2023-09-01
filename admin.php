@@ -5,7 +5,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/incl/logincheck.php");
 if(isset($_SERVER["HTTP_REFERER"])) { 
 	$http_referer = $_SERVER["HTTP_REFERER"]; 
 } else { 
-	$http_refer = "/"; 
+	$http_referer = "/"; 
 }
 
 $stmt = $conn->prepare("SELECT * FROM users WHERE id=:t0");
@@ -13,7 +13,7 @@ $stmt->bindParam(':t0', $_SESSION["id"]);
 $stmt->execute();
 foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $user);
 
-if($usr->isAdmin == 0) {
+if($user->isAdmin == 0) {
 	header("Location:" . $http_referer);
 }
 
