@@ -11,7 +11,7 @@ if(isset($_SERVER["HTTP_REFERER"])) {
 $stmt = $conn->prepare("SELECT * FROM users WHERE id=:t0");
 $stmt->bindParam(':t0', $_SESSION["id"]);
 $stmt->execute();
-foreach($stmt1->fetchAll(PDO::FETCH_OBJ) as $user);
+foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $user);
 
 if($usr->isAdmin == 0) {
 	header("Location:" . $http_referer);
