@@ -38,7 +38,7 @@ if(isset($_POST["term"])) {
 	$stmt->execute();
 	
 	$stmt = $conn->prepare("DELETE FROM testimonials WHERE sent_by=:t0");
-	$stmt->bindParam(':t0', $photo->id);
+	$stmt->bindParam(':t0', $_POST["term_id"]);
 	$stmt->execute();
 
 	$stmt = $conn->prepare("SELECT * FROM photos WHERE `uploaded_by`=:t0");
@@ -72,6 +72,31 @@ if(isset($_POST["term"])) {
 	echo "User banned";
 }
 
+if(isset($_POST["unban"])) {
+	$stmt = $conn->prepare("UPDATE users SET `isBanned`=0 WHERE `id`=:t0");
+	$stmt->bindParam(':t0', $_POST["unban_id"]);
+	$stmt->execute();
+	echo "User unbanned";
+}
+
+if(isset($_POST["delete_photo"])) {
+	$stmt = $conn->prepare("DELETE from photos WHERE `id`=:t0");
+	$stmt->bindParam(':t0', $_POST["photo_id"]);
+	$stmt->execute();
+
+	if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.jpg")) {
+		unlink($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.jpg");
+	} else if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.png")) {
+		unlink($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.png");
+	} else if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.bmp")) {
+		unlink($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.bmp");
+	} else if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.tga")) {
+		unlink($_SERVER["DOCUMENT_ROOT"] . "/photos/" . $_POST["photo_id"] . ".full.tga");
+	}
+	
+	echo "Photo deleted";
+}
+
 ?>
 
 <h1>Admin panel.</h1>
@@ -79,7 +104,9 @@ if(isset($_POST["term"])) {
 <hr>
 
 <form method="post">
-	<input type="text" name="term_id"><input type="submit" name="term" value="Terminate User">
+	<input type="text" name="term_id"><input type="submit" name="term" value="Terminate User"><br>
+	<input type="text" name="unban_id"><input type="submit" name="unban" value="Unban user"><br>
+	<input type="text" name="photo_id"><input type="submit" name="delete_photo" value="Delete photo"><br>
 </form>
 
 <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/incl/footer.php"); ?>
