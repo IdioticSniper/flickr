@@ -30,9 +30,9 @@ $stmt->execute();
 foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $user);
 
 if(substr($user->screen_name, -1) == "s") { 
-	$sn_display = htmlspecialchars($user->screen_name) . "'"; 
+	$sn_display = htmlspecialchars($user->screen_name) . "\'"; 
 } else {
-	$sn_display = htmlspecialchars($user->screen_name) . "'s";
+	$sn_display = htmlspecialchars($user->screen_name) . "\'s";
 }
 
 $url = "http://" . $_SERVER['SERVER_NAME'];
@@ -70,7 +70,7 @@ if($_GET["raw"] == 0) {
 		";
 	}
 	if($_GET["name"] == 1) {
-		echo "document.write('		<tr><td style=\"'+flickr__fnt+'\" align=\"left\" valign=\"top\"><img src=\"" . $url . $user->display_picture . "\" width=\"48\" height=\"48\" align=\"left\" style=\"margin-right: 3px;\"><a href=\"/profile.php?id=" . $_GET["nsid"] . "\" style=\"'+flickr__lnk+'\">More of " . $sn_display . " photos...</a></td></tr>');
+		echo "document.write('		<tr><td style=\"'+flickr__fnt+'\" align=\"left\" valign=\"top\"><img src=\"". $url . "/buddyicons/" . $photo->uploaded_by . ".jpg\" width=\"48\" height=\"48\" align=\"left\" style=\"margin-right: 3px;\"><a href=\"" . $url . "/profile.php?id=" . $photo->uploaded_by . "\" style=\"'+flickr__lnk+'\">More of ". $sn_display . " photos...</a></td></tr>');
 		";
 	}
 	echo "document.write('		<tr><td style=\"'+flickr__fnt+'\" align=\"center\" valign=\"top\"><a href=\"" . $url . "\" style=\"'+flickr__lnk+'\">www.<strong><font color=\"#1E12CA\">snipp</font><font color=\"#EBCA14\">r</font></strong>.win</a></td></tr>');
