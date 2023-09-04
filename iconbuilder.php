@@ -75,7 +75,7 @@ if(isset($_POST["del"])) {
 	<table>
 		<tr>
 			<td id="Hint"> 
-				<p>Your buddy icon is what we use to represent you when you're in Flickr.</p>
+				<p>Your buddy icon is what we use to represent you when you're in <?php echo $website["instance_name"]; ?>.</p>
 				<center>
 					<img src="/images/buddyicon.jpg">
 					<p>Your icon is <br>48 X 48 pixels in size.

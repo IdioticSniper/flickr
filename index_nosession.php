@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-	<title>Welcome to Flickr - Photo Sharing</title>
+	<title>Welcome to <?php echo $website["instance_name"]; ?> - Photo Sharing</title>
 	<link href="/css/home.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -25,12 +25,12 @@
    <td class="SignUp" align="center"><strong>Start sharing your stories</strong><br />
 	<a href="/register.php"><img src="images/button_sign_up_up.gif" style="border: none;"></a><br />...and open a free account.</td>
 		
-   <td class="LogIn">Already a Flickr member?<br>
+   <td class="LogIn">Already a <?php echo $website["instance_name"]; ?> member?<br>
 	 <a href="login.php">Log in here</a>.
 	</td>
 	</tr>
  </table>
- <p class="TellIt"><strong>Flickr is a revolution in photo storage, sharing and organization</strong>, making photo 
+ <p class="TellIt"><strong><?php echo $website["instance_name"]; ?> is a revolution in photo storage, sharing and organization</strong>, making photo 
 management an easy, natural and collaborative process. Get comments, notes, and tags 
 on your photos, post to any blog, share and chat live and more!</p>
 

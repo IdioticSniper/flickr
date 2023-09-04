@@ -64,7 +64,7 @@ function set_username(username){
 </script>
 
 
-	<h1>Register for Flickr here.</h1>
+	<h1>Register for <?php echo $website["instance_name"]; ?> here.</h1>
 
 	<table>
 		<tr>
