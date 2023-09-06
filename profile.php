@@ -121,10 +121,19 @@ $Now = new DateTime($user->last_login);
 					}
 				}
 				
-				echo htmlspecialchars($user->off_city . ", " . $user->off_country);
+				/* REWRITE THIS ! */
+				if(!empty($user->off_city && $user->off_country)) {
+					echo htmlspecialchars($user->off_city . ", " . $user->off_country);
+				} else if(empty($user->off_city)) {
+					echo htmlspecialchars($user->off_country);
+				}  else if(empty($user->off_country)) {
+					echo htmlspecialchars($user->off_city);
+				}
 				?>
 			</p>
-				
+
+			
+			
 			<?php if(!empty($user->off_hometown || $user->off_occ || $user->things_interests || $user->things_books || $user->things_movies || $user->things_music)) {
 				if($_SESSION["id"] == $_GET["id"]) {
 					echo "<h3>A bit more about you...</h3>";
